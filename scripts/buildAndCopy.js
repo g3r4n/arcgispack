@@ -1,5 +1,9 @@
 const fs = require("fs-extra");
-const srcDir = "./src/lib/esri-bundle";
-const distDir = "./build/esri-bundle";
-fs.removeSync(distDir);
-fs.copySync(srcDir, distDir);
+const dirs = [
+  { src: "./src/lib/esri-bundle", dist: "./build/esri-bundle" },
+  { src: "./src/lib/esri-bundle/arcgis-js-api", dist: "./build/arcgis-js-api" }
+];
+dirs.forEach(function(dir) {
+  fs.removeSync(dir.dist);
+  fs.copySync(dir.src, dir.dist);
+});
