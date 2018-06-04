@@ -41,7 +41,7 @@ module.exports = {
   },
   output: {
     path: __dirname + "/src/lib/esri-bundle",
-    publicPath: "/esri-bundle",
+    publicPath: "/esri-bundle/",
     filename: "bundle.js"
   },
   plugins: [
