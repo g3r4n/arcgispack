@@ -1,3 +1,4 @@
 import Map from "esri/Map";
 
-export { Map };
+window.esriBundle = {};
+window.esriBundle.Map = Map;
