@@ -3,7 +3,7 @@ const ArcGISPlugin = require("@arcgis/webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-  entry: ["./src/lib/index.js"],
+  entry: ["./src/lib/esri-bundle.js"],
   module: {
     rules: [
       {
