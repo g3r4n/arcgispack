@@ -14,7 +14,7 @@
     "eject": "react-scripts eject",
     "precommit": "lint-staged",
     "lint": "prettier --write \"src/**/*.{js,json,css,md}\"",
-    "buildLib": "webpack --mode production && node scripts/buildAndCopy.js",
+    "buildLib": "node scripts/createFiles.js && webpack --mode production && node scripts/buildAndCopy.js",
     "serve": "serve -s build"
   },
   "lint-staged": {
