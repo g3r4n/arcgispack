@@ -7,3 +7,4 @@ dirs.forEach(function(dir) {
   fs.removeSync(dir.dist);
   fs.copySync(dir.src, dir.dist);
 });
+fs.removeSync("./esri-bundle");
