@@ -1,8 +1,57 @@
 import EsriConfig from "./esriConfig";
 import EsriMap from "esri/Map";
 import MapView from "esri/views/MapView";
+import BaseDynamicLayer from "esri/layers/BaseDynamicLayer";
+import BaseElevationLayer from "esri/layers/BaseElevationLayer";
+import BaseTileLayer from "esri/layers/BaseTileLayer";
+import CSVLayer from "esri/layers/CSVLayer";
+import ElevationLayer from "esri/layers/ElevationLayer";
+import FeatureLayer from "esri/layers/FeatureLayer";
+import GeoRSSLayer from "esri/layers/GeoRSSLayer";
+import GraphicsLayer from "esri/layers/GraphicsLayer";
+import GroupLayer from "esri/layers/GroupLayer";
+import ImageryLayer from "esri/layers/ImageryLayer";
+import IntegratedMeshLayer from "esri/layers/IntegratedMeshLayer";
+import KMLLayer from "esri/layers/KMLLayer";
+import MapImageLayer from "esri/layers/MapImageLayer";
+import MapNotesLayer from "esri/layers/MapNotesLayer";
+import OpenStreetMapLayer from "esri/layers/OpenStreetMapLayer";
+import PointCloudLayer from "esri/layers/PointCloudLayer";
+import SceneLayer from "esri/layers/SceneLayer";
+import StreamLayer from "esri/layers/StreamLayer";
+import TileLayer from "esri/layers/TileLayer";
+import VectorTileLayer from "esri/layers/VectorTileLayer";
+import WebTileLayer from "esri/layers/WebTileLayer";
+import WMSLayer from "esri/layers/WMSLayer";
+import WMTSLayer from "esri/layers/WMTSLayer";
 
 window.esriBundle = {};
+// config
+window.esriBundle.EsriConfig = EsriConfig;
+// Map and Views
 window.esriBundle.Map = EsriMap;
 window.esriBundle.MapView = MapView;
-window.esriBundle.EsriConfig = EsriConfig;
+// esri/layers
+window.esriBundle.BaseDynamicLayer = BaseDynamicLayer;
+window.esriBundle.BaseElevationLayer = BaseElevationLayer;
+window.esriBundle.BaseTileLayer = BaseTileLayer;
+window.esriBundle.CSVLayer = CSVLayer;
+window.esriBundle.ElevationLayer = ElevationLayer;
+window.esriBundle.FeatureLayer = FeatureLayer;
+window.esriBundle.GeoRSSLayer = GeoRSSLayer;
+window.esriBundle.GraphicsLayer = GraphicsLayer;
+window.esriBundle.GroupLayer = GroupLayer;
+window.esriBundle.ImageryLayer = ImageryLayer;
+window.esriBundle.IntegratedMeshLayer = IntegratedMeshLayer;
+window.esriBundle.KMLLayer = KMLLayer;
+window.esriBundle.MapImageLayer = MapImageLayer;
+window.esriBundle.MapNotesLayer = MapNotesLayer;
+window.esriBundle.OpenStreetMapLayer = OpenStreetMapLayer;
+window.esriBundle.PointCloudLayer = PointCloudLayer;
+window.esriBundle.SceneLayer = SceneLayer;
+window.esriBundle.StreamLayer = StreamLayer;
+window.esriBundle.TileLayer = TileLayer;
+window.esriBundle.VectorTileLayer = VectorTileLayer;
+window.esriBundle.WebTileLayer = WebTileLayer;
+window.esriBundle.WMSLayer = WMSLayer;
+window.esriBundle.WMTSLayer = WMTSLayer;
