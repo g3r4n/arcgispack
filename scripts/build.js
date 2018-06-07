@@ -64,7 +64,7 @@ const runWebpack = function() {
   webpack(
     {
       mode: "production",
-      entry: [path.join(pathCwd, "esri-bundle/esriBundle.js")],
+      entry: config.webpackEntry,
       module: {
         rules: [
           {
