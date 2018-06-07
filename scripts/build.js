@@ -5,8 +5,9 @@ const ArcGISPlugin = require("@arcgis/webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 let config = require("./config.js");
 // set default value
-config.webpackEntry = path.join(config.buildFolder, "esriBundle.js");
 const pathCwd = process.cwd();
+config.buildFolder = path.join(pathCwd, "esri-bundle");
+config.webpackEntry = path.join(config.buildFolder, "esriBundle.js");
 const dirs = [
   {
     src: config.buildFolder,
