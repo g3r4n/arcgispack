@@ -3,7 +3,9 @@ const fs = require("fs-extra");
 const webpack = require("webpack");
 const ArcGISPlugin = require("@arcgis/webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const config = require("./config.js");
+let config = require("./config.js");
+// set default value
+config.webpackEntry = path.join(config.buildFolder, "esriBundle.js");
 const pathCwd = process.cwd();
 const dirs = [
   {
