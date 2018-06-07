@@ -7,11 +7,11 @@ const config = require("./config.js");
 const pathCwd = process.cwd();
 const dirs = [
   {
-    src: path.join(pathCwd, "esri-bundle"),
+    src: config.buildFolder,
     dist: path.join(pathCwd, "build/esri-bundle")
   },
   {
-    src: path.join(pathCwd, "esri-bundle/arcgis-js-api"),
+    src: path.join(config.buildFolder, "arcgis-js-api"),
     dist: path.join(pathCwd, "build/arcgis-js-api")
   }
 ];
@@ -56,7 +56,10 @@ ${libEntryExport}
   fs.writeFileSync(config.webpackEntry, webpackEntryText);
   fs.writeFileSync(config.libEntry, libEntryText);
   // copy esri config
-  fs.copyFileSync("./scripts/esriConfig.js", "./esri-bundle/esriConfig.js");
+  fs.copyFileSync(
+    "./scripts/esriConfig.js",
+    path.join(config.buildFolder, "esriConfig.js")
+  );
 };
 
 const runWebpack = function() {
@@ -138,7 +141,7 @@ const copyingBundle = function() {
     fs.copySync(dir.src, dir.dist);
   });
   // remove bundle folder
-  fs.removeSync("./esri-bundle");
+  fs.removeSync(config.buildFolder);
 };
 
 createBundleFiles();
