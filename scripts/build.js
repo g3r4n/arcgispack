@@ -75,25 +75,6 @@ const runWebpack = function() {
           {
             test: /\.css$/,
             use: [MiniCssExtractPlugin.loader, "css-loader"]
-          },
-          {
-            test: /\.(jpe?g|png|gif|webp)$/,
-            loader: "url-loader",
-            options: {
-              // Inline files smaller than 10 kB (10240 bytes)
-              limit: 10 * 1024
-            }
-          },
-          {
-            test: /\.(wsv|ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
-            use: [
-              {
-                loader: "file-loader",
-                options: {
-                  name: "fonts/[name].[ext]"
-                }
-              }
-            ]
           }
         ]
       },
@@ -106,10 +87,7 @@ const runWebpack = function() {
         filename: "bundle.js"
       },
       plugins: [
-        new ArcGISPlugin({
-          // disable provided asset loaders
-          useDefaultAssetLoaders: false
-        }),
+        new ArcGISPlugin(),
         new MiniCssExtractPlugin({
           filename: "[name].css",
           chunkFilename: "[id].css"
