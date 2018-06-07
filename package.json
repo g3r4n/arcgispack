@@ -35,7 +35,7 @@
     "mini-css-extract-plugin": "^0.4.0",
     "prettier": "1.13.4",
     "serve": "^7.2.0",
-    "webpack": "^4.10.2",
-    "webpack-cli": "^3.0.1"
+    "webpack": "^4.11.1",
+    "webpack-cli": "^3.0.3"
   }
 }
