@@ -5,10 +5,6 @@ module.exports = {
   libEntry: path.join(libFolder, "index.js"),
   dojoModules: [
     {
-      name: "EsriConfig",
-      dojoPath: "./esriConfig"
-    },
-    {
       name: "Map",
       dojoPath: "esri/Map"
     },

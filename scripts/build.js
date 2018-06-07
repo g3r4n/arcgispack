@@ -8,6 +8,10 @@ let config = require("./config.js");
 const pathCwd = process.cwd();
 config.buildFolder = path.join(pathCwd, "esri-bundle");
 config.webpackEntry = path.join(config.buildFolder, "esriBundle.js");
+config.dojoModules.unshift({
+  name: "EsriConfig",
+  dojoPath: "./esriConfig"
+});
 const dirs = [
   {
     src: config.buildFolder,
