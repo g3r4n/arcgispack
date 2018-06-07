@@ -3,11 +3,13 @@ const fs = require("fs-extra");
 const webpack = require("webpack");
 const ArcGISPlugin = require("@arcgis/webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+var shortUuid = require("short-uuid");
 let config = require("./config.js");
 // set default value
 const pathCwd = process.cwd();
-config.buildFolder = path.join(pathCwd, "esri-bundle");
-config.webpackEntry = path.join(config.buildFolder, "esriBundle.js");
+const uuid = shortUuid().new();
+config.buildFolder = path.resolve(pathCwd, uuid);
+config.webpackEntry = path.resolve(config.buildFolder, "esriBundle.js");
 config.dojoModules.unshift({
   name: "EsriConfig",
   dojoPath: "./esriConfig"
@@ -15,11 +17,11 @@ config.dojoModules.unshift({
 const dirs = [
   {
     src: config.buildFolder,
-    dist: path.join(pathCwd, "build/esri-bundle")
+    dist: path.resolve(pathCwd, "build/esri-bundle")
   },
   {
-    src: path.join(config.buildFolder, "arcgis-js-api"),
-    dist: path.join(pathCwd, "build/arcgis-js-api")
+    src: path.resolve(config.buildFolder, "arcgis-js-api"),
+    dist: path.resolve(pathCwd, "build/arcgis-js-api")
   }
 ];
 const createBundleFiles = function() {
@@ -65,7 +67,7 @@ ${libEntryExport}
   // copy esri config
   fs.copyFileSync(
     "./scripts/esriConfig.js",
-    path.join(config.buildFolder, "esriConfig.js")
+    path.resolve(config.buildFolder, "esriConfig.js")
   );
 };
 
@@ -92,7 +94,7 @@ const runWebpack = function() {
         extensions: ["*", ".js", ".jsx"]
       },
       output: {
-        path: path.join(pathCwd, "esri-bundle"),
+        path: config.buildFolder,
         publicPath: "/esri-bundle/",
         filename: "bundle.js"
       },
