@@ -20,4 +20,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-esri-bundle
+/esri-bundle
+/public/esri-bundle
+/public/arcgis-js-api

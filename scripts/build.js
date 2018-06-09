@@ -17,11 +17,11 @@ config.dojoModules.unshift({
 const dirs = [
   {
     src: config.buildFolder,
-    dist: path.resolve(pathCwd, "build/esri-bundle")
+    dist: path.resolve(config.outputPath, "esri-bundle")
   },
   {
     src: path.resolve(config.buildFolder, "arcgis-js-api"),
-    dist: path.resolve(pathCwd, "build/arcgis-js-api")
+    dist: path.resolve(config.outputPath, "arcgis-js-api")
   }
 ];
 const createBundleFiles = function() {
