@@ -3,27 +3,31 @@ const fs = require("fs-extra");
 const webpack = require("webpack");
 const ArcGISPlugin = require("@arcgis/webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-var shortUuid = require("short-uuid");
+const shortUuid = require("short-uuid");
+const Listr = require("listr");
 let config = require("./config.js");
-// set default value
 const pathCwd = process.cwd();
-const uuid = shortUuid().new();
-config.buildFolder = path.resolve(pathCwd, uuid);
-config.webpackEntry = path.resolve(config.buildFolder, "esriBundle.js");
-config.dojoModules.unshift({
-  name: "EsriConfig",
-  dojoPath: "./esriConfig"
-});
-const dirs = [
-  {
-    src: config.buildFolder,
-    dist: path.resolve(config.outputPath, "esri-bundle")
-  },
-  {
-    src: path.resolve(config.buildFolder, "arcgis-js-api"),
-    dist: path.resolve(config.outputPath, "arcgis-js-api")
-  }
-];
+
+const updateConfig = config => {
+  // set default value
+  const uuid = shortUuid().new();
+  config.buildFolder = path.resolve(pathCwd, uuid);
+  config.webpackEntry = path.resolve(config.buildFolder, "esriBundle.js");
+  config.dojoModules.unshift({
+    name: "EsriConfig",
+    dojoPath: "./esriConfig"
+  });
+  config.buildDirs = [
+    {
+      src: config.buildFolder,
+      dist: path.resolve(config.outputPath, "esri-bundle")
+    },
+    {
+      src: path.resolve(config.buildFolder, "arcgis-js-api"),
+      dist: path.resolve(config.outputPath, "arcgis-js-api")
+    }
+  ];
+};
 const createBundleFiles = function() {
   // clear old files
   fs.removeSync(config.webpackEntry);
@@ -72,80 +76,81 @@ ${libEntryExport}
 };
 
 const runWebpack = function() {
-  // run webpack build
-  webpack(
-    {
-      mode: "production",
-      entry: config.webpackEntry,
-      module: {
-        rules: [
-          {
-            test: /\.(js|jsx)$/,
-            exclude: /node_modules/,
-            use: ["babel-loader"]
-          },
-          {
-            test: /\.css$/,
-            use: [MiniCssExtractPlugin.loader, "css-loader"]
+  return new Promise(function(resolve, reject) {
+    // run webpack build
+    webpack(
+      {
+        mode: "production",
+        entry: config.webpackEntry,
+        module: {
+          rules: [
+            {
+              test: /\.(js|jsx)$/,
+              exclude: /node_modules/,
+              use: ["babel-loader"]
+            },
+            {
+              test: /\.css$/,
+              use: [MiniCssExtractPlugin.loader, "css-loader"]
+            }
+          ]
+        },
+        resolve: {
+          extensions: ["*", ".js", ".jsx"]
+        },
+        output: {
+          path: config.buildFolder,
+          publicPath: "/esri-bundle/",
+          filename: "bundle.js"
+        },
+        plugins: [
+          new ArcGISPlugin(),
+          new MiniCssExtractPlugin({
+            filename: "[name].css",
+            chunkFilename: "[id].css"
+          })
+        ],
+        externals: [
+          (context, request, callback) => {
+            if (/pe-wasm$/.test(request)) {
+              return callback(null, "amd " + request);
+            }
+            callback();
           }
-        ]
+        ],
+        node: {
+          process: false,
+          global: false
+        }
       },
-      resolve: {
-        extensions: ["*", ".js", ".jsx"]
-      },
-      output: {
-        path: config.buildFolder,
-        publicPath: "/esri-bundle/",
-        filename: "bundle.js"
-      },
-      plugins: [
-        new ArcGISPlugin(),
-        new MiniCssExtractPlugin({
-          filename: "[name].css",
-          chunkFilename: "[id].css"
-        })
-      ],
-      externals: [
-        (context, request, callback) => {
-          if (/pe-wasm$/.test(request)) {
-            return callback(null, "amd " + request);
+      (err, stats) => {
+        if (err) {
+          console.error(err.stack || err);
+          if (err.details) {
+            console.error(err.details);
           }
-          callback();
+          return;
         }
-      ],
-      node: {
-        process: false,
-        global: false
-      }
-    },
-    (err, stats) => {
-      if (err) {
-        console.error(err.stack || err);
-        if (err.details) {
-          console.error(err.details);
+
+        const info = stats.toJson();
+
+        if (stats.hasErrors()) {
+          console.error(info.errors);
+          reject(info.errors);
         }
-        return;
-      }
 
-      const info = stats.toJson();
-
-      if (stats.hasErrors()) {
-        console.error(info.errors);
+        if (stats.hasWarnings()) {
+          // console.warn(info.warnings);
+        }
+        // Done processing
+        resolve("Done building the api");
       }
-
-      if (stats.hasWarnings()) {
-        // console.warn(info.warnings);
-      }
-      // Done processing
-      console.log("Done building the api");
-      // copying folders
-      copyingBundle();
-    }
-  );
+    );
+  });
 };
 
 const copyingBundle = function() {
-  dirs.forEach(function(dir) {
+  config.buildDirs.forEach(function(dir) {
     fs.removeSync(dir.dist);
     fs.copySync(dir.src, dir.dist);
   });
@@ -153,5 +158,26 @@ const copyingBundle = function() {
   fs.removeSync(config.buildFolder);
 };
 
-createBundleFiles();
-runWebpack();
+// creating the list for console
+const tasks = new Listr([
+  {
+    title: "loading config",
+    task: () => updateConfig(config)
+  },
+  {
+    title: "create build file",
+    task: () => createBundleFiles()
+  },
+  {
+    title: "building the API",
+    task: () => runWebpack()
+  },
+  {
+    title: "Copying bundles to the output path",
+    task: () => copyingBundle()
+  }
+]);
+
+tasks.run().catch(err => {
+  console.error(err);
+});
