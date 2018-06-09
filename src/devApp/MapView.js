@@ -1,4 +1,4 @@
-import { MapView } from "../lib";
+import { MapView } from "esri";
 import React, { Component } from "react";
 
 export default class ReactMapView extends Component {
