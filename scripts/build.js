@@ -104,7 +104,11 @@ const runWebpack = function() {
           filename: "bundle.js"
         },
         plugins: [
-          new ArcGISPlugin(),
+          new ArcGISPlugin({
+            options: {
+              noConsole: true
+            }
+          }),
           new MiniCssExtractPlugin({
             filename: "[name].css",
             chunkFilename: "[id].css"
