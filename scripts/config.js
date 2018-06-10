@@ -1,5 +1,5 @@
 const path = require("path");
-const libFolder = path.join(process.cwd(), "esri");
+const libFolder = path.join(process.cwd(), "arcgis");
 
 module.exports = {
   outputPath: path.join(process.cwd(), "public"),

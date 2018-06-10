@@ -1,9 +1,9 @@
 {
-  "name": "esri-bundler",
+  "name": "arcgispack",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "esri": "file:esri",
+    "arcgis": "file:arcgis",
     "listr": "^0.14.1",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
