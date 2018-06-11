@@ -5,7 +5,7 @@ const ArcGISPlugin = require("@arcgis/webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const shortUuid = require("short-uuid");
 const Listr = require("listr");
-let config = require("./config.js");
+let config = require("./configFull.js");
 const pathCwd = process.cwd();
 
 const updateConfig = config => {
@@ -13,10 +13,7 @@ const updateConfig = config => {
   const uuid = shortUuid().new();
   config.buildFolder = path.resolve(pathCwd, uuid);
   config.webpackEntry = path.resolve(config.buildFolder, "esriBundle.js");
-  config.dojoModules.unshift({
-    name: "EsriConfig",
-    dojoPath: "./esriConfig"
-  });
+  config.dojoModules.unshift("./esriConfig");
   config.buildDirs = [
     {
       src: config.buildFolder,
@@ -41,14 +38,15 @@ const createBundleFiles = function() {
   let libEntryExport = "";
   // loop on each dojo modules
   config.dojoModules.forEach(function(dojoModule, index) {
+    const dojoModuleName = dojoModule.substr(dojoModule.lastIndexOf("/") + 1);
     webpackEntryTextStart +=
-      `import ${dojoModule.name} from "${dojoModule.dojoPath}";` + newLine;
+      `import ${dojoModuleName} from "${dojoModule}";` + newLine;
     webpackEntryTextEnd +=
-      `window.esriBundle.${dojoModule.name} = ${dojoModule.name};` + newLine;
+      `window.esriBundle.${dojoModuleName} = ${dojoModuleName};` + newLine;
     libEntryConst +=
-      `const ${dojoModule.name} = window.esriBundle.${dojoModule.name};` +
+      `const ${dojoModuleName} = window.esriBundle.${dojoModuleName};` +
       newLine;
-    libEntryExport += `  ${dojoModule.name}`;
+    libEntryExport += `  ${dojoModuleName}`;
     if (index !== config.dojoModules.length - 1) {
       libEntryExport += "," + newLine;
     }
@@ -132,6 +130,7 @@ const runWebpack = function() {
           console.error(err.stack || err);
           if (err.details) {
             console.error(err.details);
+            reject(err.details);
           }
           return;
         }
