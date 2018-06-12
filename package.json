@@ -2,6 +2,8 @@
   "name": "arcgispack",
   "version": "0.0.1",
   "bin": "./lib/build.js",
+  "author": "Enguerrand des Vaux <enguerrand@des-vaux.fr>",
+  "license": "MIT",
   "dependencies": {
     "@arcgis/webpack-plugin": "^4.7.11",
     "babel-core": "^6.26.3",
