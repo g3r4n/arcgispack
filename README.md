@@ -21,4 +21,5 @@ Using this tool to bundle the API let you build the application as you want with
 - Change DEFAULT_WORKER_URL in the esriconfig
 - restore copy of babel config in case of error
 - make it completely configurable
-- create a verbose and normal mode to limit the ouput list
+- create a verbose and normal mode to limit the output list
+- host a full build on a CDN (eg. unpck)
