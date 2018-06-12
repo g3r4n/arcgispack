@@ -161,11 +161,55 @@ const copyingBundle = function() {
   fs.removeSync(config.buildFolder);
 };
 
+const copyExistingBabel = function() {
+  fs.copyFileSync(
+    path.resolve(pathCwd, ".babelrc"),
+    path.resolve(pathCwd, ".babelrc.orig")
+  );
+};
+
+const createBabelConfig = function() {
+  fs.writeFileSync(
+    path.resolve(pathCwd, ".babelrc"),
+    `{
+    "presets": [["env", { "modules": "amd" }]]
+  }`
+  );
+};
+
+const removeBabelConfig = function() {
+  fs.removeSync(path.resolve(pathCwd, ".babelrc"));
+};
+
+const removeSavedBabelConfig = function() {
+  fs.removeSync(path.resolve(pathCwd, ".babelrc.orig"));
+};
+
+const restoreBabelConfig = function() {
+  fs.writeFileSync(
+    path.resolve(pathCwd, ".babelrc"),
+    fs.readFileSync(path.resolve(pathCwd, ".babelrc.orig"))
+  );
+};
+
 // creating the list for console
 const tasks = new Listr([
   {
     title: "loading config",
     task: () => updateConfig(config)
+  },
+  {
+    title: "Copy of the existing babelrc",
+    skip: () => {
+      if (!fs.existsSync(path.resolve(pathCwd, ".babelrc"))) {
+        return "babelrc do not exist";
+      }
+    },
+    task: () => copyExistingBabel()
+  },
+  {
+    title: "Create babelrc config",
+    task: () => createBabelConfig()
   },
   {
     title: "create build file",
@@ -178,6 +222,28 @@ const tasks = new Listr([
   {
     title: "Copying bundles to the output path",
     task: () => copyingBundle()
+  },
+  {
+    title: "Remove bundle babelrc copy",
+    task: () => removeBabelConfig()
+  },
+  {
+    title: "Restore babelrc",
+    skip: () => {
+      if (!fs.existsSync(path.resolve(pathCwd, ".babelrc.orig"))) {
+        return "no babelrc to restore";
+      }
+    },
+    task: () => restoreBabelConfig()
+  },
+  {
+    title: "Delete copy of babelrc",
+    skip: () => {
+      if (!fs.existsSync(path.resolve(pathCwd, ".babelrc.orig"))) {
+        return "no babelrc copy to delete";
+      }
+    },
+    task: () => removeSavedBabelConfig()
   }
 ]);
 
