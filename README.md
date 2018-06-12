@@ -4,12 +4,12 @@ Bundle the ArcGIS API for you
 
 # Why ?
 
-Using the @arcgis/webpack-plugin is for very advance GIS developper. You need to do the following tradeoff :
+@arcgis/webpack-plugin got the following tradeoff :
 
-- No hot-reloading using Webpack
-- you can't use another bundler tool expect webpack
-- you have to deal and understand webpack config
 - you can't use creaste-react-app or other tool without changing the underling configuration
+- you can't use another bundler tool other than webpack
+- you have to deal and understand webpack config
+- No hot-reloading using Webpack
 
 Using this tool to bundle the API let you build the application as you want without tradeoff.
 
