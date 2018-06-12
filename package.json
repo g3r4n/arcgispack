@@ -2,6 +2,7 @@
   "name": "arcgispack",
   "version": "0.0.1",
   "private": true,
+  "bin": "./lib/build.js",
   "dependencies": {
     "@arcgis/webpack-plugin": "^4.7.11",
     "babel-core": "^6.26.3",
@@ -21,7 +22,7 @@
     "eject": "react-scripts eject",
     "precommit": "lint-staged",
     "lint": "prettier --write \"src/**/*.{js,json,css,md}\"",
-    "buildLib": "node scripts/build.js",
+    "buildLib": "arcgispack",
     "serve": "serve -s build"
   },
   "lint-staged": {
