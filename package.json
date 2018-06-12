@@ -1,7 +1,6 @@
 {
   "name": "arcgispack",
   "version": "0.0.1",
-  "private": true,
   "bin": "./lib/build.js",
   "dependencies": {
     "@arcgis/webpack-plugin": "^4.7.11",
