@@ -1,0 +1,9 @@
+/.vscode
+/arcgis
+/build
+/public
+/src
+.gitignore
+arcgis.config.js
+package-lock.json
+yarn.lock
