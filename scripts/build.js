@@ -14,16 +14,6 @@ const updateConfig = config => {
   config.buildFolder = path.resolve(pathCwd, uuid);
   config.webpackEntry = path.resolve(config.buildFolder, "esriBundle.js");
   config.dojoModules.unshift("./esriConfig");
-  config.buildDirs = [
-    {
-      src: config.buildFolder,
-      dist: path.resolve(config.outputPath, "esri-bundle")
-    },
-    {
-      src: path.resolve(config.buildFolder, "arcgis-js-api"),
-      dist: path.resolve(config.outputPath, "arcgis-js-api")
-    }
-  ];
 };
 const createBundleFiles = function() {
   // clear old files
@@ -103,6 +93,7 @@ const runWebpack = function() {
         },
         plugins: [
           new ArcGISPlugin({
+            root: "esri-bundle",
             options: {
               noConsole: true
             }
@@ -153,10 +144,11 @@ const runWebpack = function() {
 };
 
 const copyingBundle = function() {
-  config.buildDirs.forEach(function(dir) {
-    fs.removeSync(dir.dist);
-    fs.copySync(dir.src, dir.dist);
-  });
+  fs.removeSync(path.resolve(config.outputPath, "esri-bundle"));
+  fs.copySync(
+    config.buildFolder,
+    path.resolve(config.outputPath, "esri-bundle")
+  );
   // remove bundle folder
   fs.removeSync(config.buildFolder);
 };
