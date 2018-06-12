@@ -5,7 +5,7 @@ const ArcGISPlugin = require("@arcgis/webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const shortUuid = require("short-uuid");
 const Listr = require("listr");
-let config = require("./configFull.js");
+let config = require("./configLight.js");
 const pathCwd = process.cwd();
 
 const updateConfig = config => {
