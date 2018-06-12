@@ -4,6 +4,11 @@
   "bin": "./lib/build.js",
   "author": "Enguerrand des Vaux <enguerrand@des-vaux.fr>",
   "license": "MIT",
+  "homepage": "https://github.com/g3r4n/arcgispack",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/g3r4n/arcgispack"
+  },
   "dependencies": {
     "@arcgis/webpack-plugin": "^4.7.11",
     "babel-core": "^6.26.3",
