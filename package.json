@@ -28,7 +28,8 @@
     "eject": "react-scripts eject",
     "precommit": "lint-staged",
     "lint": "prettier --write \"src/**/*.{js,json,css,md}\"",
-    "buildLib": "arcgispack",
+    "build:api": "arcgispack",
+    "build:fullapi": "node .\\lib\\build.js \"./configFull.js\"",
     "serve": "serve -s build"
   },
   "lint-staged": {
