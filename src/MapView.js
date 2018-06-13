@@ -1,4 +1,4 @@
-import { MapView } from "arcgis";
+import { MapView } from "./arcgis";
 import React, { Component } from "react";
 
 export default class ReactMapView extends Component {

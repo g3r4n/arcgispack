@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react";
-import { Map } from "arcgis";
+import { Map } from "./arcgis";
 import MapView from "./MapView";
 import "./App.css";
 import "arcgis-js-api/themes/light/main.css";
