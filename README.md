@@ -2,6 +2,10 @@
 
 Bundle the ArcGIS API for you
 
+# examples
+
+- create-react-app : [https://github.com/g3r4n/arcgispack-cra-example](https://github.com/g3r4n/arcgispack-cra-example)
+
 # Why ?
 
 @arcgis/webpack-plugin got the following tradeoff :
@@ -12,6 +16,7 @@ Bundle the ArcGIS API for you
 - No hot-reloading using Webpack
 
 Using this tool to bundle the API let you build the application as you want without tradeoff.
+s
 
 # TODO
 
