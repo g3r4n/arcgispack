@@ -2,9 +2,43 @@
 
 Bundle the ArcGIS API for you
 
-# examples
+# How to use it ?
+
+## the easy way: use one of this examples
 
 - create-react-app : [https://github.com/g3r4n/arcgispack-cra-example](https://github.com/g3r4n/arcgispack-cra-example)
+
+`Note` : you need to build the API before starting to develop
+
+## Manually :
+
+1.  add the package
+
+Add `arcgispack` as a dev dependency:
+
+```bash
+npm i -D arcgispack
+or
+npm add -D arcgispack
+```
+
+2.  create the arcgis.config.js in the root folder
+
+https://github.com/g3r4n/arcgispack-cra-example/blob/master/arcgis.config.js
+
+3.  update the configuration to match your need
+
+- `outputPath` : folder where the API build will generate
+- `libEntry` : entry folder from where you will import the API component
+- `dojoModules` : Array of dojo modules to build in the API and to access through the lib entry
+
+4.  generate a build (or update your package.json to crete a task see [here](https://github.com/g3r4n/arcgispack-cra-example/blob/master/package.json#L13) )
+
+```bash
+npx arcgispack
+```
+
+5.  Build your amazing app as you wish without tradeoff
 
 # Why ?
 
