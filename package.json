@@ -11,7 +11,8 @@
     "url": "https://github.com/g3r4n/arcgispack"
   },
   "files": [
-    "esri-bundle"
+    "esri-bundle",
+    "lib"
   ],
   "dependencies": {
     "@arcgis/webpack-plugin": "^4.7.11",
@@ -34,7 +35,8 @@
     "lint": "prettier --write \"src/**/*.{js,json,css,md}\"",
     "build:api": "arcgispack",
     "build:fullapi": "node .\\lib\\build.js \"./configFull.js\"",
-    "serve": "serve -s build"
+    "serve": "serve -s build",
+    "publish:cdn": "yarn version --patch &&  node .\\lib\\build.js \"./configFull.js\" && yarn publish --network-timeout 60000"
   },
   "lint-staged": {
     "*.{js,json,css,md}": [
