@@ -10,6 +10,9 @@
     "type": "git",
     "url": "https://github.com/g3r4n/arcgispack"
   },
+  "files": [
+    "esri-blundle"
+  ],
   "dependencies": {
     "@arcgis/webpack-plugin": "^4.7.11",
     "babel-core": "^6.26.3",

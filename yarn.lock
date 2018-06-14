@@ -378,9 +378,6 @@ arcgis-js-api@4.7.2:
     maquette-jsx "~2.1.1"
     moment "2.20.1"
 
-"arcgis@file:arcgis":
-  version "0.0.0"
-
 are-we-there-yet@~1.1.2:
   version "1.1.5"
   resolved "https://registry.yarnpkg.com/are-we-there-yet/-/are-we-there-yet-1.1.5.tgz#4b35c2944f062a8bfcda66410760350fe9ddfc21"
