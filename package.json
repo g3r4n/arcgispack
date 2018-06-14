@@ -1,6 +1,6 @@
 {
   "name": "arcgispack",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "bin": "./lib/build.js",
   "main": "./lib/index.js",
   "author": "Enguerrand des Vaux <enguerrand@des-vaux.fr>",
@@ -11,7 +11,7 @@
     "url": "https://github.com/g3r4n/arcgispack"
   },
   "files": [
-    "esri-blundle"
+    "esri-bundle"
   ],
   "dependencies": {
     "@arcgis/webpack-plugin": "^4.7.11",
