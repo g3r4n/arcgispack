@@ -19,7 +19,7 @@ Add `arcgispack` as a dev dependency:
 ```bash
 npm i -D arcgispack
 or
-npm add -D arcgispack
+yarn add -D arcgispack
 ```
 
 2.  create the arcgis.config.js in the root folder
