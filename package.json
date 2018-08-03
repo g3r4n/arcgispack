@@ -1,6 +1,6 @@
 {
   "name": "arcgispack",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "bin": "./lib/build.js",
   "main": "./lib/index.js",
   "author": "Enguerrand des Vaux <enguerrand@des-vaux.fr>",
@@ -39,7 +39,7 @@
     "publish:cdn": "yarn version --patch &&  node .\\lib\\build.js \"./configFull.js\" && yarn publish --network-timeout 60000 && git push --tags"
   },
   "lint-staged": {
-    "*.{js,json,css,md}": [
+    "{src,lib}/**/*.{js,json,css,md}": [
       "prettier --write",
       "git add"
     ]
