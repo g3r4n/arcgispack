@@ -38,9 +38,14 @@
     "publish:cdn": "yarn version --patch &&  node .\\lib\\build.js \"./configFull.js\" && git add -A && git commit -m \"Publish API\" && yarn publish --network-timeout 60000 && git push --tags"
   },
   "lint-staged": {
-    "{src,lib}/**/*.{js,json,css,md}": [
-      "prettier --write",
-      "git add"
+    "prettier": {
+      "*.{js,json,css,md}": [
+        "some command",
+        "git add"
+      ]
+    },
+    "ignore": [
+      "esri-bundle/**/*.*"
     ]
   },
   "devDependencies": {
