@@ -35,7 +35,7 @@
     "build:api": "arcgispack",
     "build:fullapi": "node .\\lib\\build.js \"./configFull.js\"",
     "serve": "serve -s build",
-    "publish:cdn": "yarn version --patch &&  node .\\lib\\build.js \"./configFull.js\" && git add -A && git commit -m \"Publish API\" && yarn publish --network-timeout 60000 && git push --tags"
+    "publish:cdn": "yarn version --patch && yarn publish --network-timeout 60000 && git push --tags"
   },
   "lint-staged": {
     "prettier": {
