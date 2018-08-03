@@ -1,6 +1,6 @@
 {
   "name": "arcgispack",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "bin": "./lib/build.js",
   "main": "./lib/index.js",
   "author": "Enguerrand des Vaux <enguerrand@des-vaux.fr>",
@@ -35,7 +35,7 @@
     "build:api": "arcgispack",
     "build:fullapi": "node .\\lib\\build.js \"./configFull.js\"",
     "serve": "serve -s build",
-    "publish:cdn": "yarn version --patch && yarn publish --network-timeout 60000 && git push --tags"
+    "publish:cdn": "yarn version --patch && yarn publish && git push --tags"
   },
   "lint-staged": {
     "prettier": {
