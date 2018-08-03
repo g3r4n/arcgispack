@@ -1,6 +1,6 @@
 import esriConfig from "esri/config";
 
-const DEFAULT_WORKER_URL = "/arcgis-js-api/";
+const DEFAULT_WORKER_URL = "https://js.arcgis.com/4.8/";
 const DEFAULT_LOADER_URL = `${DEFAULT_WORKER_URL}dojo/dojo-lite.js`;
 
 esriConfig.workers.loaderUrl = DEFAULT_LOADER_URL;
@@ -42,6 +42,6 @@ esriConfig.workers.loaderConfig = {
   ]
 };
 
-esriConfig.request.corsEnabledServers.push("unpkg.com");
+esriConfig.request.corsEnabledServers.push("gitcdn.link");
 
 export default esriConfig;
