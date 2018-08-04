@@ -42,6 +42,6 @@ esriConfig.workers.loaderConfig = {
   ]
 };
 
-esriConfig.request.corsEnabledServers.push("gitcdn.link");
+esriConfig.request.corsEnabledServers.push("jsdelivr.net");
 
 export default esriConfig;
