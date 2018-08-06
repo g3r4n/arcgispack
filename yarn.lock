@@ -400,6 +400,10 @@ arcgis-js-api@~4.8.1:
     maquette-jsx "~2.1.1"
     moment "2.22.1"
 
+arcgis-wrapper@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/arcgis-wrapper/-/arcgis-wrapper-1.0.2.tgz#f71a98bc434377c784e580c68066dfe905858693"
+
 arch@^2.1.0:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/arch/-/arch-2.1.1.tgz#8f5c2731aa35a30929221bb0640eed65175ec84e"

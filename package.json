@@ -15,6 +15,7 @@
   ],
   "dependencies": {
     "@arcgis/webpack-plugin": "4.8.1",
+    "arcgis-wrapper": "1.0.2",
     "babel-core": "6.26.3",
     "babel-loader": "7.1.5",
     "babel-preset-env": "1.7.0",
