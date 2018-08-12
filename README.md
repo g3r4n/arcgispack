@@ -2,15 +2,21 @@
 
 Bundle the ArcGIS API for you
 
-# How to use it ?
-
-## the easy way (CDN): use one of this examples
-
-- create-react-app : [https://github.com/g3r4n/arcgispack-cra-example](https://github.com/g3r4n/arcgispack-cra-example)
+# examples:
 - React: https://codesandbox.io/s/k30nlqkr37?module=%2Fsrc%2FReactSceneView.js
 - Vue: https://codesandbox.io/s/jp5vojwmov?module=%2Fsrc%2Fcomponents%2FMapView.vue
+- create-react-app : [https://github.com/g3r4n/arcgispack-cra-example](https://github.com/g3r4n/arcgispack-cra-example)
+# How to use it ?
 
-`Note` : Theses examples use a full build of the API store on a CDN
+## 1- Add your arcgispack bundle to your application
+
+You can use either a custon build or the ful build from the CDN.
+
+```
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/g3r4n/arcgispack@0.0.24/esri-bundle/bundle.js"></script>
+<!-- uncomment the line below for local build -->
+<!-- <script type="text/javascript" src="esri-bundle/bundle.js"></script> -->
+```
 
 ## Create your own bundle :
 
