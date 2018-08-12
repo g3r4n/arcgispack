@@ -18,7 +18,7 @@ You can use either a custon build or the ful build from the CDN.
 <!-- <script type="text/javascript" src="esri-bundle/bundle.js"></script> -->
 ```
 
-## Create your own bundle :
+### Create your own bundle :
 
 1.  add the package
 
@@ -46,6 +46,14 @@ npx arcgispack
 ```
 
 5.  Build your amazing app as you wish without tradeoff
+
+## 2- Add your arcgispack bundle to your application
+
+Use [arcgis-wrapper](https://www.npmjs.com/package/arcgis-wrapper) to get modules from the ArcGIS JS API 
+
+```
+import { Map, SceneView, SceneLayer } from "arcgis-wrapper";
+```
 
 # Why ?
 
