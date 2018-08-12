@@ -7,6 +7,8 @@ Bundle the ArcGIS API for you
 ## the easy way (CDN): use one of this examples
 
 - create-react-app : [https://github.com/g3r4n/arcgispack-cra-example](https://github.com/g3r4n/arcgispack-cra-example)
+- React: https://codesandbox.io/s/k30nlqkr37?module=%2Fsrc%2FReactSceneView.js
+- Vue: https://codesandbox.io/s/jp5vojwmov?module=%2Fsrc%2Fcomponents%2FMapView.vue
 
 `Note` : Theses examples use a full build of the API store on a CDN
 
@@ -29,7 +31,6 @@ https://github.com/g3r4n/arcgispack-cra-example/blob/master/arcgis.config.js
 3.  update the configuration to match your needs
 
 - `outputPath` : folder where the API build will generate
-- `libEntry` : entry folder from where you will import the API component
 - `dojoModules` : Array of API dojo modules to build and to access through the lib entry
 
 4.  generate a build (or update your package.json to create a task see [here](https://github.com/g3r4n/arcgispack-cra-example/blob/master/package.json#L14) )
@@ -47,7 +48,6 @@ npx arcgispack
 - you can't use creaste-react-app or other tools/template without changing the underlining configuration
 - you can't use another bundle tool other than webpack
 - you have to deal and understand webpack config
-- No hot-reloading using Webpack because of AMD modules output from Babel or Typescript
 
 Using this tool to bundle the API let you build the application as you want without tradeoff.
 
