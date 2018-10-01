@@ -1,6 +1,6 @@
 {
   "name": "arcgispack",
-  "version": "0.0.24",
+  "version": "0.0.25",
   "bin": "./lib/build.js",
   "main": "./lib/index.js",
   "author": "Enguerrand des Vaux <enguerrand@des-vaux.fr>",
