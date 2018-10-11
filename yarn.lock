@@ -2797,7 +2797,7 @@ detect-port-alt@1.1.6:
     address "^1.0.1"
     debug "^2.6.0"
 
-"dgrid@github:Esri/dgrid#v1.2.1/esri-3.22.0":
+dgrid@Esri/dgrid#v1.2.1/esri-3.22.0:
   version "1.2.1"
   resolved "https://codeload.github.com/Esri/dgrid/tar.gz/200a7fda418bec199f3b76a493fdfa7d4440698b"
 
@@ -2827,7 +2827,7 @@ dijit@1.14.0:
   dependencies:
     dojo "1.14.0"
 
-"dijit@github:Esri/dijit#v1.14.0/esri-3.26.0":
+dijit@Esri/dijit#v1.14.0/esri-3.26.0:
   version "1.14.0"
   resolved "https://codeload.github.com/Esri/dijit/tar.gz/072f07ff2e0971ca73118c587831b1ee3c9bfb97"
   dependencies:
@@ -2883,7 +2883,7 @@ dojo-dstore@1.1.2:
   dependencies:
     dojo "^1.9.0"
 
-"dojo-util@github:Esri/dojo-util#v1.14.0/esri-3.26.0":
+dojo-util@Esri/dojo-util#v1.14.0/esri-3.26.0:
   version "1.14.0"
   resolved "https://codeload.github.com/Esri/dojo-util/tar.gz/b780eb59dc4deab51af2e1d0715b222b7be5a434"
 
@@ -2898,7 +2898,7 @@ dojo-webpack-plugin@^2.7.6:
     tmp "0.0.30"
     webpack-plugin-compat "1.0.1"
 
-dojo@1.14.0, "dojo@github:Esri/dojo#v1.14.0/esri-3.26.0":
+dojo@1.14.0, dojo@Esri/dojo#v1.14.0/esri-3.26.0:
   version "1.14.0"
   resolved "https://codeload.github.com/Esri/dojo/tar.gz/3e711df7514599844c7a205b2a129e04ded2557f"
 
@@ -2907,7 +2907,7 @@ dojo@^1.9.0:
   resolved "https://registry.yarnpkg.com/dojo/-/dojo-1.14.2.tgz#45ca90b19068230e1486f68b1531fa4ce0e21280"
   integrity sha512-TI+Ytgfh/VfmHWERp45Jte6NFMdoJTPsvUP/uzJUvAXET8FP2h442LePWWJ/q/xZ4V0V8OtdJhx8It/GB+Zbxg==
 
-"dojox@github:Esri/dojox#v1.14.0/esri-3.26.0":
+dojox@Esri/dojox#v1.14.0/esri-3.26.0:
   version "1.14.0"
   resolved "https://codeload.github.com/Esri/dojox/tar.gz/7fec7ed78d05a579e1188d51186553d91873c19c"
   dependencies:
