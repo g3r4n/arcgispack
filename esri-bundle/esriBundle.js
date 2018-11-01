@@ -227,6 +227,7 @@ import InitialViewProperties from "esri/webscene/InitialViewProperties";
 import Lighting from "esri/webscene/Lighting";
 import Presentation from "esri/webscene/Presentation";
 import Slide from "esri/webscene/Slide";
+import MemorySourceWorker from "esri/layers/graphics/sources/support/MemorySourceWorker";
 
 window.esriBundle = {};
 window.esriBundle.esriConfig = esriConfig;
@@ -458,3 +459,4 @@ window.esriBundle.InitialViewProperties = InitialViewProperties;
 window.esriBundle.Lighting = Lighting;
 window.esriBundle.Presentation = Presentation;
 window.esriBundle.Slide = Slide;
+window.esriBundle.MemorySourceWorker = MemorySourceWorker;
